@@ -8,5 +8,6 @@ public class ModalListener extends ListenerAdapter {
     @Override
     public void onModalInteraction(@NotNull ModalInteractionEvent event) {
         System.out.println(event.getValues());
+        event.reply("Данные отправлены!").setEphemeral(true).queue();
     }
 }
