@@ -1,10 +1,17 @@
 package voidcube.voidguard.bot;
 
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Collection;
 
 public class ReadyListener implements EventListener {
     public static void main()
@@ -12,6 +19,7 @@ public class ReadyListener implements EventListener {
         // Note: It is important to register your ReadyListener before building
         JDA jda = JDABuilder.createDefault("MTEzMzAxMTQwOTg3NDE5NDQ4NA.G3VDQi.4zOEWDVrxjbrUSCGNx2nfQf5VOWviYnPZVSlf0")
                 .addEventListeners(new ReadyListener())
+                .addEventListeners(new BukkitListener())
                 .build();
 
         // optionally block until JDA is ready
@@ -19,8 +27,9 @@ public class ReadyListener implements EventListener {
     }
 
     @Override
-    public void onEvent(GenericEvent event) {
-        if (event instanceof ReadyEvent)
+    public void onEvent(@NotNull GenericEvent event) {
+        if (event instanceof ReadyEvent) {
             System.out.println("API is ready!");
+        }
     }
 }
