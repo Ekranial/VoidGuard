@@ -19,7 +19,7 @@ public class ReadyListener implements EventListener {
         // Note: It is important to register your ReadyListener before building
         JDA jda = JDABuilder.createDefault("MTEzMzAxMTQwOTg3NDE5NDQ4NA.G3VDQi.4zOEWDVrxjbrUSCGNx2nfQf5VOWviYnPZVSlf0")
                 .addEventListeners(new ReadyListener())
-                .addEventListeners(new BukkitListener())
+                .addEventListeners(new ButtonListener())
                 .build();
 
         // optionally block until JDA is ready
