@@ -1,0 +1,4 @@
+name: VoidGuard
+version: '${project.version}'
+main: voidcube.voidguard.VoidGuard
+api-version: 1.20
