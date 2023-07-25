@@ -12,7 +12,6 @@ public final class VoidGuard extends JavaPlugin {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     @Override

@@ -1,22 +1,15 @@
 package voidcube.voidguard.bot;
 
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.EventListener;
-import net.dv8tion.jda.api.interactions.components.ActionRow;
-import net.dv8tion.jda.api.interactions.components.ItemComponent;
-import net.dv8tion.jda.api.interactions.components.buttons.Button;
-import net.dv8tion.jda.api.interactions.components.text.TextInput;
-import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
-import net.dv8tion.jda.api.requests.restaction.MessageCreateAction;
+import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.ChunkingFilter;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
 
 public class ReadyListener implements EventListener {
     public static void main()
@@ -26,6 +19,9 @@ public class ReadyListener implements EventListener {
                 .addEventListeners(new ReadyListener())
                 .addEventListeners(new ButtonListener())
                 .addEventListeners(new ModalListener())
+                .setChunkingFilter(ChunkingFilter.ALL)
+                .setMemberCachePolicy(MemberCachePolicy.ALL)
+                .enableIntents(GatewayIntent.GUILD_MEMBERS)
                 .build();
 
         // optionally block until JDA is ready
@@ -36,6 +32,8 @@ public class ReadyListener implements EventListener {
     public void onEvent(@NotNull GenericEvent event) {
         if (event instanceof ReadyEvent) {
             System.out.println("API is ready!");
+
+            System.out.println(event.getJDA().getTextChannelById("1132747766729277480").getHistoryFromBeginning(1).complete().getRetrievedHistory().get(0));
         }
     }
 }
