@@ -9,7 +9,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>VoidGuard</name> \\Привет)
+    <name>VoidGuard</name>
 
     <properties>
         <java.version>1.8</java.version>
