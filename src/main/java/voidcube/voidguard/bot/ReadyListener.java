@@ -15,7 +15,7 @@ public class ReadyListener implements EventListener {
     public static void main()
             throws InterruptedException {
         // Note: It is important to register your ReadyListener before building
-        JDA jda = JDABuilder.createDefault("MTEzMzAxMTQwOTg3NDE5NDQ4NA.G3VDQi.4zOEWDVrxjbrUSCGNx2nfQf5VOWviYnPZVSlf0")
+        JDA jda = JDABuilder.createDefault("MTEzMzAxMTQwOTg3NDE5NDQ4NA.GpHYgs.2nqlh_jW5JMvprxDBijQgMNWYllfk2jluqUC74")
                 .addEventListeners(new ReadyListener())
                 .addEventListeners(new ButtonListener())
                 .addEventListeners(new ModalListener())
@@ -32,8 +32,6 @@ public class ReadyListener implements EventListener {
     public void onEvent(@NotNull GenericEvent event) {
         if (event instanceof ReadyEvent) {
             System.out.println("API is ready!");
-
-            System.out.println(event.getJDA().getTextChannelById("1132747766729277480").getHistoryFromBeginning(1).complete().getRetrievedHistory().get(0));
         }
     }
 }

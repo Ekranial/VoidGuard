@@ -1,6 +1,5 @@
 package voidcube.voidguard.bot;
 
-import com.google.gson.JsonIOException;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.component.ButtonInteractionEvent;
@@ -54,6 +53,12 @@ public class ButtonListener extends ListenerAdapter {
             event.reply("Ник установлен!").setEphemeral(true).queue();
         } else if (event.getButton().getId().equals("close-ticket")) {
             event.getChannel().delete().queue();
+        } else if (event.getButton().getId().equals("support")) {
+            event.replyModal(
+                    Modal.create("support-form", "Обращение в техподдержку")
+                            .addActionRow(TextInput.create("nick", "Игровой ник", TextInputStyle.SHORT).setRequired(true).build())
+                            .addActionRow(TextInput.create("reason", "Что вас беспокоит:", TextInputStyle.PARAGRAPH).setRequired(true).build()).build()
+            ).queue();
         }
     }
 }
