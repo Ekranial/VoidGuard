@@ -2,7 +2,6 @@ package voidcube.voidguard.bot;
 
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.GenericEvent;
 import net.dv8tion.jda.api.events.session.ReadyEvent;
@@ -16,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ReadyListener implements EventListener {
 
-    public static JDA jda = JDABuilder.createDefault("хуй тебе а не токен")
+    public static JDA jda = JDABuilder.createDefault("токен")
             .addEventListeners(new ReadyListener())
             .addEventListeners(new ButtonListener())
             .addEventListeners(new ModalListener())
