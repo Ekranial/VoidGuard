@@ -35,7 +35,7 @@ public class ModalListener extends ListenerAdapter {
                             "Откуда узнал про сервер: " + event.getValue("know").getAsString())
                     .build();
 
-            Button button_whitelist = Button.success("whitelist-" + event.getValue("nick").getAsString() + "-" + event.getValue("real-name").getAsString() + "-" + event.getValue("age").getAsString() + "-" + event.getMember().getId(), "Добавить " + event.getValue("nick").getAsString() + " в вайтлист");
+            Button button_whitelist = Button.success("whitelist-" +  event.getValue("nick").getAsString() + "-" + event.getValue("real-name").getAsString() + "-" + event.getValue("age").getAsString() + "-" + event.getMember().getId(), "Добавить " + event.getValue("nick").getAsString() + " в вайтлист");
             Button button_set_nick = Button.success("set-nick-" + event.getValue("nick").getAsString() + "-" + event.getMember().getId(), "Установить ник " + event.getValue("nick").getAsString());
             Button button_close_ticket = Button.danger("close-ticket", "Закрыть тикет");
 
